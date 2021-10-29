@@ -26,7 +26,8 @@ See [installation](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Insta
 ## ⚙️ Configuration
   * Not yet implemented.
   * The only configuration features planned will allow setting the executable 
-      file path for glslViewer—so no big rush.
+      file path for glslViewer—so no big rush until someone tells me they need
+      this.
 
 ## 💪 Usage
 Simply use the command `:GlslView` to open the current buffer in glslViewer.
@@ -35,4 +36,4 @@ Simply use the command `:GlslView` to open the current buffer in glslViewer.
  * [vim-GlslViewer](https://github.com/patriciogonzalezvivo/vim-glslViewer) -
     Version drift seems to have rendered it useless (at this time) since it
     laucnes the process with `&` to free up the UI, but this causes glslViewer
-    to stop rendering.
+    to stop rendering (and then in my case, close).
