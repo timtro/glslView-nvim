@@ -1,3 +1,3 @@
 
-command! -nargs=0 -bar GlslView :lua require'auto-glslViewer'.glslView()
+command! -nargs=0 -bar GlslView :lua require'glslView'.glslView()
 " autocmd! BufNewFile,BufRead  *.frag GlslView
