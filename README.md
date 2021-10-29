@@ -1,12 +1,14 @@
 # `glslView-nvim`
 
 When editing GLSL shaders,
-  this plugin provides the command `GlslView` which will open glslViewer to the
-  file in the current buffer,
-  and leave it to automatically listen for file changes.
+  this plugin provides the command `GlslView` which will open 
+  [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer)
+  to the file being edited in the current buffer.
+It is opened with the `-l` flag so that `glslViewer` will automatically listen
+  for file changes,
+  updating the preview as you save.
 
 ## 📦 Installation
-
 Install the plugin with your preferred package manager.
 For example,
   in [packer](https://github.com/wbthomason/packer.nvim) simply:
@@ -16,6 +18,10 @@ For example,
 ```
 Don't forget to `PackerCompile` after installation so that the plugin will only
   be loaded for glsl files.
+
+### Installing `glslViewer`
+See [installation](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Installing)
+  in the glslViewer Wiki.
 
 ## ⚙️ Configuration
   * Not yet implemented.
