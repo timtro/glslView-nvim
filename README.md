@@ -19,7 +19,7 @@ For example,
 Don't forget to `PackerCompile` after installation so that the plugin will only
   be loaded for glsl files.
 You'll also need a plugin to detect the glsl filetype.
-I use [vim-glsl)(https://github.com/tikhomirov/vim-glsl) which also provides
+I use [vim-glsl](https://github.com/tikhomirov/vim-glsl) which also provides
   syntax highlighting.
 
 #### Installing `glslViewer`
