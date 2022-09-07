@@ -14,7 +14,7 @@ For example,
   in [packer](https://github.com/wbthomason/packer.nvim) simply:
 
 ```lua
-  use { 'timtro/glslView-nvim', ft = 'glsl', config = require('glslView').setup }
+  use { 'timtro/glslView-nvim', ft = 'glsl' }
 ```
 Don't forget to `PackerCompile` after installation so that the plugin will only
   be loaded for glsl files.
