@@ -6,7 +6,7 @@ M.glslView = function()
 
   local handle -- pre-declared to avoid diagnostic error.
   handle = vim.loop.spawn(
-    'glslViewer',
+    M.config.exe_path,
     { args = { full_file_path, '-l' } },
     function()
       handle:close()
@@ -23,6 +23,16 @@ M.glslView = function()
         end
       end,
     })
+  end
+end
+
+M.setup = function(opts)
+  M.config = {
+    exe_path = 'glslView',
+  }
+
+  if opts ~= nil then
+    M.config = vim.tbl_deep_extend('force', M.config, opts)
   end
 end
 

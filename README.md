@@ -14,7 +14,7 @@ For example,
   in [packer](https://github.com/wbthomason/packer.nvim) simply:
 
 ```lua
-  use { 'timtro/glslView-nvim', ft = 'glsl' }
+  use { 'timtro/glslView-nvim', ft = 'glsl', config = require('glslView').setup }
 ```
 Don't forget to `PackerCompile` after installation so that the plugin will only
   be loaded for glsl files.
@@ -28,10 +28,21 @@ See [installation](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Insta
 
 
 ## ⚙️ Configuration
-  * Not yet implemented.
-  * The only configuration features planned will allow setting the executable 
-      file path for glslViewer—so no big rush until someone tells me they need
-      this.
+The only configuration currently available is setting the executable file path for glslViewer
+
+This can be done by passing the `exe_path` option to `setup()`.
+For example,
+  in [packer](https://github.com/wbthomason/packer.nvim) simply:
+
+```lua
+  use {
+    'timtro/glslView-nvim',
+    ft = 'glsl',
+    config = function()
+      require('glslView').setup { exe_path = "/path/to/glslView.exe" }
+    end
+  }
+```
 
 ## 💪 Usage
 Simply use the command `:GlslView` to open the current buffer in glslViewer.
