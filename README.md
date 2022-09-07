@@ -7,12 +7,6 @@ When editing GLSL shaders,
 By default, it is opened with the `-l` flag so that `glslViewer` will automatically listen
   for file changes,
   updating the preview as you save.
-It takes 0 or more arguments to pass to the `glslViewer` executable,
-  for example:
-
-```vimscript
-:GlslView -w 128 -h 256
-```
 
 ## 📦 Installation
 Install the plugin with your preferred package manager.
@@ -49,6 +43,14 @@ The default options are:
 
 ## 💪 Usage
 Simply use the command `:GlslView` to open the current buffer in glslViewer.
+
+Additional arguments will be passed to the executable after any arguments set in configuration.
+
+For example, to start with a 128x256 window:
+
+```vimscript
+:GlslView -w 128 -h 256
+```
 
 ## 🧰 Alternatives
  * [vim-GlslViewer](https://github.com/patriciogonzalezvivo/vim-glslViewer) -
