@@ -2,16 +2,21 @@ local M = {}
 
 M.config = {
   exe_path = 'glslView',
-  arguments = { '-l' },
+  args = { '-l' },
 }
 
-M.glslView = function()
+M.glslView = function(command_args)
   local bufnr = vim.api.nvim_get_current_buf()
   local full_file_path = vim.api.nvim_buf_get_name(0)
+
+  local exe_args = { full_file_path }
+  table.move(M.config.args, 1, #M.config.args, #exe_args+1, exe_args);
+  table.move(command_args, 1, #command_args, #exe_args+1, exe_args);
 
   local handle -- pre-declared to avoid diagnostic error.
   handle = vim.loop.spawn(
     M.config.exe_path,
+    { args = exe_args },
     function()
       handle:close()
     end

@@ -4,9 +4,15 @@ When editing GLSL shaders,
   this plugin provides the command `GlslView` which will open 
   [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer)
   to the file being edited in the current buffer.
-It is opened with the `-l` flag so that `glslViewer` will automatically listen
+By default, it is opened with the `-l` flag so that `glslViewer` will automatically listen
   for file changes,
   updating the preview as you save.
+It takes 0 or more arguments to pass to the `glslViewer` executable,
+  for example:
+
+```vimscript
+:GlslView -w 128 -h 256
+```
 
 ## 📦 Installation
 Install the plugin with your preferred package manager.
@@ -28,21 +34,18 @@ See [installation](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Insta
 
 
 ## ⚙️ Configuration
-The only configuration currently available is setting the executable file path for glslViewer
-
-This can be done by passing the `exe_path` option to `setup()`.
-For example,
-  in [packer](https://github.com/wbthomason/packer.nvim) simply:
+Configuration is done by passing options to `setup()`:
 
 ```lua
-  use {
-    'timtro/glslView-nvim',
-    ft = 'glsl',
-    config = function()
-      require('glslView').setup { exe_path = "/path/to/glslView.exe" }
-    end
-  }
+require('glslView').setup {
+  exe_path = '/path/to/glslViewer',
+  arguments = { '-l', '-w', '128', '-h', '256' },
+}
 ```
+
+The default options are:
+ * `exe_path`: `'glslViewer'`
+ * `arguments`: `{ '-l' }`
 
 ## 💪 Usage
 Simply use the command `:GlslView` to open the current buffer in glslViewer.
