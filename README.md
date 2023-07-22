@@ -19,8 +19,7 @@ For example,
 Don't forget to `PackerCompile` after installation so that the plugin will only
   be loaded for glsl files.
 You'll also need a plugin to detect the glsl filetype.
-I use [vim-glsl](https://github.com/tikhomirov/vim-glsl) which also provides
-  syntax highlighting.
+
 
 #### Installing `glslViewer`
 See [installation](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Installing)
@@ -28,21 +27,17 @@ See [installation](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Insta
 
 
 ## ⚙️ Configuration
-Configuration is done by passing options to `setup()`:
+Configuration is done by passing options to `setup()`. The defaults are:
 
 ```lua
 require('glslView').setup {
-  exe_path = '/path/to/glslViewer',
-  arguments = { '-l', '-w', '128', '-h', '256' },
+  viewer_path = 'glslViewer',
+  args = { '-l' },
 }
 ```
 
-The default options are:
- * `exe_path`: `'glslViewer'`
- * `arguments`: `{ '-l' }`
-
 ## 💪 Usage
-Simply use the command `:GlslView` to open the current buffer in glslViewer.
+Use the command `:GlslView` to open the current buffer in glslViewer.
 
 Additional arguments will be passed to the executable after any arguments set in configuration.
 
@@ -50,6 +45,10 @@ For example, to start with a 128x256 window:
 
 ```vimscript
 :GlslView -w 128 -h 256
+```
+More primitively, one can call directly through Lua:
+```
+:lua require('glslView').glslView({'-w', '128', '-h', '256'})
 ```
 
 ## 🧰 Alternatives
