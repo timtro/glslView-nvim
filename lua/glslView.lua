@@ -7,20 +7,16 @@ M.config = {
 
 M.glslView = function(command_args)
   local bufnr = vim.api.nvim_get_current_buf()
-  local full_file_path = vim.api.nvim_buf_get_name(0)
+  local full_frag_file_path = vim.api.nvim_buf_get_name(0)
 
-  local viewer_args = { full_file_path }
-  table.move(M.config.args, 1, #M.config.args, #viewer_args+1, viewer_args);
-  table.move(command_args, 1, #command_args, #viewer_args+1, viewer_args);
+  local viewer_args = { full_frag_file_path }
+  vim.list_extend(viewer_args, M.config.args)
+  vim.list_extend(viewer_args, command_args)
 
   local handle -- pre-declared to avoid diagnostic error.
-  handle = vim.uv.spawn(
-    M.config.viewer_path,
-    { args = viewer_args },
-    function()
-      handle:close()
-    end
-  )
+  handle = vim.uv.spawn(M.config.viewer_path, { args = viewer_args }, function()
+    handle:close()
+  end)
 
   if not handle then
     error(debug.traceback 'Failed to spawn glslViewer process.')
