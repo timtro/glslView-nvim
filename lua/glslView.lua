@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = {
-  exe_path = 'glslView',
+  exe_path = 'glslViewer',
   args = { '-l' },
 }
 
