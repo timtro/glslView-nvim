@@ -14,7 +14,7 @@ M.glslView = function(command_args)
   table.move(command_args, 1, #command_args, #exe_args+1, exe_args);
 
   local handle -- pre-declared to avoid diagnostic error.
-  handle = vim.loop.spawn(
+  handle = vim.uv.spawn(
     M.config.exe_path,
     { args = exe_args },
     function()
