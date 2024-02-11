@@ -14,7 +14,8 @@ M.glslView = function(command_args)
   vim.list_extend(viewer_args, command_args)
 
   local handle -- pre-declared to avoid diagnostic error.
-  handle = vim.uv.spawn(M.config.viewer_path, { args = viewer_args }, function()
+  local nvim_event_loop = vim.uv or vim.loop
+  handle = nvim_event_loop.spawn(M.config.viewer_path, { args = viewer_args }, function()
     handle:close()
   end)
 
